@@ -166,4 +166,4 @@ Retrieves information for a given area according to place types and bounds. Adds
     + *popularity*, *current_popularity*, *rating*, *rating_n*, *time_wait*, *time_spent* and *phone* are optional return parameters and only present if available.
   
  ## Example how the data can be used for visualization  
- ![Bars-Gif](/content/bars_visualization.gif "Bars Munich,Berlin,Barcelona, London")
+ ![Bars-Gif](/isitsafe/content/bars_visualization.gif "Bars Munich,Berlin,Barcelona, London")

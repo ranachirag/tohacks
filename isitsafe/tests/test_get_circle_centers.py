@@ -1,4 +1,4 @@
-from populartimes.crawler import get_circle_centers
+from isitsafe.populartimes.crawler import get_circle_centers
 import random
 from geopy import Point
 from geopy.distance import vincenty, VincentyDistance

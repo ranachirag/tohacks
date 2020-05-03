@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<style>
+
+#con {
+  height: 100px;
+  width: 100%;
+  position: relative;
+  border: 3px solid green;
+  background-color: grey;
+}
+
+<!--#cen {-->
+  <!--margin: 0;-->
+  <!--position: absolute;-->
+  <!--top: 50%;-->
+  <!--left: 50%;-->
+  <!-- -ms-transform: translate(-50%, -50%);-->
+  <!--transform: translate(-50%, -50%);-->
+<!--}-->
+
+.container {
+  min-height: 100%;
+  max-height: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  border: 3px solid green;
+  overflow: scroll;
+  position: fixed;
+}
+
+
+#loc {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  overflow: scroll;
+}
+#loc td, #loc th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#loc tr:nth-child(even){background-color: #f2f2f2;}
+#loc tr:hover {background-color: #ddd;}
+
+#loc th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+#search{
+  font-family: 'Alfa Slab One';font-size: 22px;
+
+}
+
+#btn {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+input[type=text] {
+  width: 600px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 75%;
+}
+
+</style>
+<body>
+    <div id="con">
+        <div id="cen">
+            <form action="" method="post">
+                <p>
+                    <!--<label for="location" id="search" placeholder="Search Location">Location Search</label>-->
+                    <input type="text" name="location" placeholder="Search Location" id="bar">
+                    <!--<input type="submit" id="btn">-->
+                </p>
+
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="center">
+            {% if message %}
+                <table id="loc">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Current Popularity</th>
+                        <th>Rating</th>
+                        <th>Safe</th>
+                    </tr>
+                    {% for i in range(len)%}
+                       <tr>
+                            <td> {{ message['name'][i] }} </td>
+                            <td> {{ message['address'][i] }} </td>
+                            <td> {{ message['current_popularity'][i] }} </td>
+                            <td> {{ message['rating'][i] }} </td>
+                            {% if  message['current_popularity'][i] != '' %}
+                                {% if  message['current_popularity'][i] >= 50 %}
+                                    <td style="background-color:red; color:white">NO</td>
+                                {% endif %}
+                                {% if  message['current_popularity'][i] < 50 %}
+                                    <td style="background-color:green; color:white">YES</td>
+                                {% endif %}
+                            {% endif %}
+                            {% if  message['current_popularity'][i] == '' %}
+                                <td></td>
+                            {% endif %}
+                       </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

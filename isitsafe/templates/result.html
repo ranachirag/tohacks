@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Convert JSON Data to HTML Table</title>
+        <script src="https://ajaz.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </head>
+<body>
+    <div class="container">
+        <div class="table-responsive">
+            <h1>Locations to visit</h1>
+            <br />
+            <table class="table table-bordered table-striped" id="location_table">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Current Popularity</th>
+                    <th>Rating</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function(){
+        $.getJSON("location.json", function(data){
+            var location_data = '';
+            $.each(data), function(key, value){
+                location_data += '<tr>';
+                location_data += '<tr>' + value.name + '<\tr>';
+                location_data += '<tr>' + value.address + '<\tr>';
+                location_data += '<tr>' + value.current_population + '<\tr>';
+                location_data += '<tr>' + value.rating + '<\tr>';
+                location_data += '<\tr>';
+            });
+            $('#location_data').append(location_data);
+        });
+    });
+</script>
+</html>
