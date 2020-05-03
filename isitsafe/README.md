@@ -21,4 +21,9 @@ This app uses the Google Places API to get the popular times data from Google an
 ## Libraries Used
 + [Populartimes library](https://github.com/m-wrzr/populartimes) - Extracted popular times data from Google Places API.
 
+## Authors 
++ Chirag Rana - Backend, HTML, CSS
++ Rutav Shah - Backend, Google Cloud, Domain
 
+## Aknowledgements 
++ TOHacks 2020 - Giving the challenge to make this project.
