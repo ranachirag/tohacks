@@ -8,7 +8,7 @@ from shapely.geometry import Point
 api = "AIzaSyA598cf-Rj1uh07ZZwLxFwkipQQJj8NUAE"
 # address = input("Please enter your current location/ address: ")
 # radius = int(input("How far are you willing to travel (radius in km)?: "))
-address = 'Location'
+address = '177 Linus Rd'
 radius = 2
 geocode_url = "https://maps.googleapis.com/maps/api/geocode/json?address={}".format(address)
 geocode_url = geocode_url + "&key={}".format(api)
@@ -53,8 +53,16 @@ print(lat, lon)
 aeqd_proj = '+proj=aeqd +lat_0={lat} +lon_0={lon} +x_0=0 +y_0=0'
 project = partial(
     pyproj.transform,
-    pyproj.Proj(aeqd_proj.format(lat=lon, lon=lat)),
+    pyproj.Proj(aeqd_proj.format(lat=lat, lon=lon)),
     proj_wgs84)
 buf = Point(0, 0).buffer(radius * 1000)  # distance in metres
 coords = transform(project, buf).exterior.coords[:]
-print(coords)
+latitudes = []
+longitudes = []
+if coords is not None:
+    for items in coords:
+        latitudes.append(items[1])
+        longitudes.append(items[0])
+topleft = (max(latitudes), min(longitudes))
+bottomright = (min(latitudes), max(longitudes))
+print(topleft, bottomright)
