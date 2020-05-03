@@ -1,7 +1,7 @@
 import populartimes, requests
 from flask import Flask, request, render_template
 
-api_key = "AIzaSyAZVCDDCb9VzLNby3OpH9U_B-VUZ6NNy0I"
+api_key = "AIzaSyA598cf-Rj1uh07ZZwLxFwkipQQJj8NUAE"
 # user_input = "bar"
 # lat = (43.750126, -79.639509,)
 # long = (43.723822, -79.055455,)
@@ -43,9 +43,6 @@ def homepage2():
     # keep looping upto length of y
     for i in range(len(y)):
 
-        # Print value corresponding to the
-        # 'name' key at the ith index of y
-        # print(y[i])
         f = populartimes.get_id(api_key, y[i]['reference'])
         if "name" in f.keys():
             data['name'].append(f['name'])
@@ -65,8 +62,8 @@ def homepage2():
             data['rating'].append('')
 
 
-    return render_template("my-form.html", message=data)
+    return render_template("my-form.html", message=data, len=len(y))
 
 
 if __name__ == '__main__':
-    app.run(port=4998, debug=True, use_reloader=True)
+    app.run(port=4984, debug=True, use_reloader=True)
