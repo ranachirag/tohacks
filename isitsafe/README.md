@@ -27,3 +27,4 @@ This app uses the Google Places API to get the popular times data from Google an
 
 ## Aknowledgements 
 + TOHacks 2020 - Giving the challenge to make this project.
++ Kyan - Created Logo
