@@ -35,8 +35,11 @@ def homepage2():
     # we know dictionary contain key value pair
     # store the value of result key in variable y
     y = x['results']
-
-    a = ''
+    data = {}
+    data['name'] = []
+    data['address'] = []
+    data['current_popularity'] = []
+    data['rating'] = []
     # keep looping upto length of y
     for i in range(len(y)):
 
@@ -44,10 +47,26 @@ def homepage2():
         # 'name' key at the ith index of y
         # print(y[i])
         f = populartimes.get_id(api_key, y[i]['reference'])
-        a = a + f['name'] + '\n'
+        if "name" in f.keys():
+            data['name'].append(f['name'])
+        else:
+            data['name'].append('')
+        if "address" in f.keys():
+            data['address'].append(f['address'])
+        else:
+            data['address'].append('')
+        if "current_popularity" in f.keys():
+            data['current_popularity'].append(f['current_popularity'])
+        else:
+            data['current_popularity'].append('')
+        if "rating" in f.keys():
+            data['rating'].append(f['rating'])
+        else:
+            data['rating'].append('')
 
-    return render_template("my-form.html", message=query)
+
+    return render_template("my-form.html", message=data)
 
 
 if __name__ == '__main__':
-    app.run(port=3000, debug=True, use_reloader=True)
+    app.run(port=4998, debug=True, use_reloader=True)

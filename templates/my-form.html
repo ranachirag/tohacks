@@ -4,22 +4,59 @@
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
+<style>
+.container {
+  height: 200px;
+  position: relative;
+  border: 3px solid green;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
 <body>
+    <div class="container">
+        <div class="center">
+            <form action="" method="post">
+                <p>
+                    <label for="current_location">Current Location</label>
+                    <input type="text" name="current_location">
+                    <input type="submit">
+                </p>
+                <p>
+                    <label for="radius">Radius</label>
+                    <input type="text" name="radius">
+                    <input type="submit">
+                </p>
+                <p>
+                    <label for="location">Location Search</label>
+                    <input type="text" name="location">
+                    <input type="submit">
+                </p>
 
-    <form action="" method="post">
-        <p>
-            <label for="location">Location Search</label>
-            <input type="text" name="location">
-        </p>
-        <p>
-            <input type="submit">
-        </p>
-    </form>
+            </form>
 
-
-    {% if message %}
-        <p>{{ message }}</p>
-    {% endif %}
-
+        </div>
+    </div>
+    <div class="container">
+        <div class="center">
+            {% if message %}
+                <table>
+                    {% for key, value in message.items() %}
+                       <tr>
+                            <th> {{ key }} </th>
+                            <td> {{ value }} </td>
+                       </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
