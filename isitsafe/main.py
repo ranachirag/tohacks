@@ -66,4 +66,4 @@ def homepage2():
 
 
 if __name__ == '__main__':
-    app.run(port=4984, debug=True, use_reloader=True)
+    app.run(port=4877, debug=True)
