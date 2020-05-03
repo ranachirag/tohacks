@@ -43,6 +43,7 @@ def homepage2():
     # keep looping upto length of y
     for i in range(len(y)):
 
+
         f = populartimes.get_id(api_key, y[i]['reference'])
         if "name" in f.keys():
             data['name'].append(f['name'])
