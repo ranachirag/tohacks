@@ -1,6 +1,6 @@
 Flask
 Werkzeug
 requests
-functools
 pyproj
 shapely
+geopy
