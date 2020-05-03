@@ -10,7 +10,7 @@ This app uses the Google Places API to get the popular times data from Google an
 ### Run Locally
 + `clone` the repository, `cd` into the isitsafe directory.
 + input ` python3 main.py`
-+ Open (http://127.0.0.1:5000/)[http://127.0.0.1:5000/] in browser 
++ Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in browser 
 
 ## Built With
 + [Python Flask](https://flask.palletsprojects.com/en/1.1.x/) - Used to create the backend of webpage.
