@@ -1,4 +1,4 @@
-from populartimes.crawler import cover_rect_with_cicles, rect_circle_collision
+from isitsafe.populartimes.crawler import cover_rect_with_cicles, rect_circle_collision
 import random
 from math import pi
 
@@ -15,7 +15,7 @@ def calc_bounding_box(circles, r):
     return ((min(xs) - r, min(ys) - r), (max(xs) + r, max(ys) + r))
 
 def test_cover_rect_with_cicles_all_in():
-    # test if calculated circles are all at least partly contained in the rect 
+    # test if calculated circles are all at least partly contained in the rect
     # (otherwise some circles would be superfluous)
     for w, h, r, circles in generate_testcases():
         assert all([rect_circle_collision(0,w,0,h,c[0],c[1],r) for c in circles])
@@ -39,10 +39,10 @@ def test_cover_rect_with_cicles_area():
             lower_left, upper_right = calc_bounding_box(circles, r)
 
             area_bounding_box = (upper_right[0] - lower_left[0]) * (upper_right[1] - lower_left[1])
-            area_circ_total = len(circles) * r * r * pi 
+            area_circ_total = len(circles) * r * r * pi
             area_rect = w * h
 
-            # use Monte Carlo method to approximate combined circle area (union of all circles) 
+            # use Monte Carlo method to approximate combined circle area (union of all circles)
             # 1000 sample points should give about 99% accuracy
             points = [(random.uniform(lower_left[0], upper_right[0]), random.uniform(lower_left[1], upper_right[1])) for tst in range(1000)]
             inside = [any([(p[0]-c[0])**2 + (p[1]-c[1])**2 <= r**2 for c in circles]) for p in points]

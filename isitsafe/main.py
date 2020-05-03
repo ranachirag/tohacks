@@ -10,7 +10,7 @@ api_key = "AIzaSyA598cf-Rj1uh07ZZwLxFwkipQQJj8NUAE"
 app = Flask(__name__)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=["GET", "POST"])
 def homepage2():
     query = ''
     if request.method == 'POST':
@@ -66,4 +66,4 @@ def homepage2():
 
 
 if __name__ == '__main__':
-    app.run(port=4877, debug=True)
+    app.run(debug=True)
