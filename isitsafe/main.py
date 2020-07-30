@@ -1,7 +1,8 @@
 import populartimes, requests
 from flask import Flask, request, render_template
 
-api_key = "AIzaSyA598cf-Rj1uh07ZZwLxFwkipQQJj8NUAE"
+# Hidden
+api_key = ""
 
 app = Flask(__name__)
 
